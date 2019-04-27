@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hint__AAddNewMemoir__txt_get_name">نام</string>
+    <string name="desTitle__AAddNewMemoir__txt_get_name">نام خاطره</string>
+    <string name="desMes__AAddNewMemoir__txt_get_name">یک نام دلخواه برای خاطره خود انتخاب کنید</string>
+
+    <string name="hint__AAddNewMemoir__txt_get_subject">موضوع</string>
+    <string name="desTitle__AAddNewMemoir__txt_get_subject">موضوع خاطره</string>
+    <string name="desMes__AAddNewMemoir__txt_get_subject">در چه رابطه است؟</string>
+
+    <string name="hint__AAddNewMemoir__txt_get_link">لینک</string>
+    <string name="desTitle__AAddNewMemoir__txt_get_link">یک نام</string>
+    <string name="desMes__AAddNewMemoir__txt_get_link">یک نام منحصر به فرد بدون فاصله جهت دسترسی سریع به این موضوع</string>
+
+    <string name="hint__AAddNewMemoir__txt_get_text">خاطره</string>
+    <string name="desTitle__AAddNewMemoir__txt_get_text">متن خاطره شما</string>
+    <string name="desMes__AAddNewMemoir__txt_get_text">متن خاطره را اینجا بنویسید یا کپی پیست کنید</string>
+
+    <string name="text__AAddNewMemoir__rdBtnOpenMemoir">باز</string>
+    <string name="text__AAddNewMemoir__rdBtnNotOpenMemoir">بسته</string>
+
+    <string name="desTitle__AAddNewMemoir__rdBtnOpenMemoir">باز یا بسته</string>
+    <string name="desMes__AAddNewMemoir__rdBtnNotOpenMemoir">نشان دهنده قابل نمایش بودن این خاطره برای دیگران یا خیر!</string>
+
+    <string name="text__AAddNewMemoir__btnRecordMemoir">ثبت کن</string>
+    <string name="text__AAddNewMemoir__btnCancelMemoir">لغو کن</string>
+
+    <string name="textError__AAddNewMemoir__errorSelectRadioBtn">لطفا باز یا بسته بودن را مشخص کنید</string>
+    <string name="textError__AAddNewMemoir__linkError">لطف حروف فارسی و حروف های زیر را وارد نکنید ، تنها انگلیسی و _ وارد کنید</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="protocol">http</string>
+    <string name="domain">10.0.2.2</string>
+    <string name="port">8080</string>
+    <string name="router">Memoir_war_exploded</string>
+</resources>

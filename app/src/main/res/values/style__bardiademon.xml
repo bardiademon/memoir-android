@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="style__activity_fatal_error__txt_show_title_and_msg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/COLOR_WHITE</item>
+        <item name="android:fontFamily">@font/iranian_sans</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__ll_show_one_info">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_margin">5sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">
+            @color/color__layout_show_info_bardiademon__background_ll_contact
+        </item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__ll_show_image">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_weight">0.1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__show_image">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__ll_show_txt_info">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__show_txt_info">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/iranian_sans</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__ll_open_link">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.1</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="style__layout_show_info_bardiademon__img_open_link">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:src">@drawable/pic_bardiademon__open_link</item>
+    </style>
+    <style name="b_edit_text" parent="Theme.AppCompat" />
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nr__week">week</string>
+    <string name="nr__group_name">group_name</string>
+
+    <string name="nr__id">id</string>
+    <string name="name_request">request</string>
+    <string name="name_json_value">R</string>
+
+    <string name="name_post__request">_REQUEST_</string>
+
+    <string name="nr__serial_phone">serial_phone</string>
+
+    <string name="name_request__check_info_login">check_info_login</string>
+    <string name="name_request__record_new_memoir">record_new_memoir</string>
+
+    <string name="nr__username">username</string>
+    <string name="nr__password">password</string>
+    <string name="nr__serial">serial</string>
+
+    <string name="nr__make_request__info_login">info_login</string>
+
+    <!-- nrh => name request header -->
+
+    <string name="name_request__register_gym">register_gym</string>
+
+    <string name="name_request__get_id_groups_bodybuilding_or_diet_for_user">get_id_groups_bodybuilding_or_diet_for_user</string>
+    <string name="nr__for">for</string>
+
+    <string name="nr__name">name</string>
+    <string name="nr__link_pic">link_pic</string>
+
+    <string name="n__values">values</string>
+    <string name="nr__name_group">name_group</string>
+
+    <string name="nr__family">family</string>
+
+    <string name="nr__subject">subject</string>
+    <string name="nr__link">link</string>
+    <string name="nr__date">date</string>
+    <string name="nr__text">text</string>
+    <string name="nr__open">open</string>
+    <string name="nrh__info_login">info_login</string>
+    <string name="nrh__get_memoir_user">get_memoir_user</string>
+    <string name="nrh__delete_memoir_user">del_memoir_user</string>
+    <string name="nrh__get_memoir">get_memoir</string>
+
+    <string name="nrh__get_subject">get_subject</string>
+
+    <string name="nrh__update_like">update_like</string>
+    <string name="nrh__update_comment">update_comment</string>
+    <string name="nrh__update_visit">update_visit</string>
+
+    <string name="nr__link_memoir">lnk_memoir</string>
+    <string name="nr__liked">liked</string>
+
+</resources>

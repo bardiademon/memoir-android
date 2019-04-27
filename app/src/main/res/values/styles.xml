@@ -1,0 +1,125 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="style__layout_header_nav__activity_home__txt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:fontFamily">@font/iranian_sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="custom_OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+    </style>
+
+    <style name="style__activity_add_new_memoir__layout_text_input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="style__activity_add_new_memoir__text_input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:textColor">@color/COLOR_BLACK</item>
+        <item name="android:textColorHint">@color/COLOR_BLACK</item>
+    </style>
+
+    <style name="style__activity_add_new_memoir__btn" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/btn</item>
+        <item name="android:textColor">@color/COLOR_BLACK</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/dubai_bold</item>
+    </style>
+
+    <style name="style__activity_get_memoir_list__btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:background">@drawable/btn</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="style__layout_lst_memoir_user__btn" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.3</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:fontFamily">@font/dubai_bedium</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="style__layout_lst_memoir_user__img">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="style__layout_lst_memoir_user__txt">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:fontFamily">@font/dubai_bedium</item>
+        <item name="android:textColor">@color/COLOR_BLACK</item>
+    </style>
+
+    <style name="style__layout_lst_memoir_user__txt_name_and_subject" parent="style__layout_lst_memoir_user__txt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="style__layout_lst_show_memoir__txt">
+        <item name="android:textColor">@color/COLOR_WHITE</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#4D626D</item>
+    </style>
+
+    <style name="style__layout_lst_show_memoir__txt_date" parent="style__layout_lst_show_memoir__txt">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/COLOR_WHITE</item>
+    </style>
+
+
+    <style name="EditText.Grey" parent="@style/AppTheme">
+        <item name="colorControlActivated">@color/grey_60</item>
+        <item name="colorControlHighlight">@color/grey_60</item>
+        <item name="colorControlNormal">@color/grey_40</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Toolbar.Light" parent="@style/AppTheme">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="android:textColorPrimary">@color/grey_60</item>
+    </style>
+
+</resources>

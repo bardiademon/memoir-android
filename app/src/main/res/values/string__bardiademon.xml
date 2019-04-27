@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bardiademon">bardiademon</string>
+    <string name="bardiademon__email">bardiademon@gmail.com</string>
+    <string name="string__layout_show_info_bardiademon">ارتباط با bardiademon</string>
+    <string name="criticism_or_suggestion">انتقاد یا پیشنهاد</string>
+
+    <string name="error">خطایی رخ داد</string>
+    <string name="added">اضافه شد</string>
+    <string name="done">انجام شد</string>
+    <string name="deleted">حذف شد</string>
+    <string name="changed">ویرایش شد</string>
+    <string name="cancel">انصراف</string>
+    <string name="record">ثبت</string>
+
+    <string name="string__sir">اقا</string>
+    <string name="string__lad">خانم</string>
+    <string name="string__androgenic">نروموک</string>
+    <string name="string__sex">جنسیت</string>
+
+    <string name="string__i_do_not_want_to_say">نیمخواهم بگویم</string>
+
+    <string name="search">بگرد</string>
+    <string name="show">نمایش</string>
+    <string name="show_all">نمایش همه</string>
+    <string name="string__exit_account">خروج از حساب</string>
+
+    <string name="string__question_exit_account">از حساب کاربری خارج میشوید؟</string>
+
+    <string name="toast__error_show_class_wait">متاسفانه خطایی رخ داد</string>
+    <string name="not_found">پیدا نشد</string>
+    <string name="string__sorry_not_found">پوزش ، موردی پیدا نشد</string>
+    <string name="getting_info_from_server">در حال گرفتن اطلاعات از سرور</string>
+    <string name="please_wait">لطفا صبر کنید . . .</string>
+    <string name="was_set">تنظیم شد</string>
+
+
+    <string name="show_message__added__title">اضافه شد</string>
+    <string name="show_message__added__message">با موفقیت اضافه شد</string>
+    <!--START String Title Message No Permission-->
+    <string name="activity_home__error_no_permission__title">عدم وجود دسترسی</string>
+    <string name="activity_home__error_no_permission__message">برنامه به دسترسی ها نیاز دارد</string>
+    <!--END String Title Message No Permission-->
+
+    <string name="toast__please_enter_info">لطفا اطلاعات را وارد کنید</string>
+    <string name="string__try_again">تلاش مجدد</string>
+
+    <!--START Default-->
+    <string name="default__activity_fatal_error__message_error">خطایی رخ داد که ناتوان در اجرا برنامه بودیم</string>
+
+    <string name="default__activity_fatal_error__title_error__no_permission">عدم وجود مجوز</string>
+    <string name="default__activity_fatal_error__message_error__no_permission">برنامه برای کار کردن به مجوز ها نیاز
+        دارد
+    </string>
+
+    <string name="default__activity_fatal_error__error_no_internet__title">خطای عدم دسترسی به اینترنت</string>
+    <string name="default__activity_fatal_error__error_no_internet__message">ّبه اینترنت دسترسی ندارید لطفا اتصالات گوشی
+        خود را چک کنید
+    </string>
+    <!--END Default-->
+
+    <string name="package_name__telegram">org.telegram.messenger</string>
+    <string name="package_name__instagram">com.instagram.android</string>
+
+    <string name="package_not_installed">برنامه نصب نیست</string>
+    <string name="address_telegram">https://t.me/</string>
+    <string name="address_instagram">https://instagram.com/</string>
+
+    <string name="btn_txt__question__yes">بله</string>
+    <string name="btn_txt__question__no">خیر</string>
+    <string name="btn_txt__question__cancel">انصراف</string>
+
+    <string name="btn_ok">فهمیدم!</string>
+    <string name="toast__for_class__close_the_app">مجبور به بستن برنامه شدیم!</string>
+
+    <string name="three_points">. . .</string>
+    <string name="question_ready__exit_from_the_page">از این صفحه خارج میشوید؟</string>
+
+    <string name="string_description__show_all_text">نمایش تمامی متن</string>
+    <string name="string_description__show_less">نمایش کمتر</string>
+
+    <string name="string__question_ready__remove">حذف شود؟</string>
+    <string name="string__question_ready__change">ویرایش شود؟</string>
+    <string name="string__question_ready__add">اضافه شود؟</string>
+    <string name="string__question_ready__set">تنظیم شود؟</string>
+
+    <string name="string__not_changed">تغییری وارد نشده</string>
+    <string name="name">نام</string>
+    <string name="subject">موضوع</string>
+    <string name="link">لینک</string>
+    <string name="date">تاریخ</string>
+    <string name="text">متن</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_msg__msg_from_server">پیام از سمت سرور</string>
+
+    <string name="str_err__add_new_memoir__err_link">لطفا لینک را بررسی کنید</string>
+    <string name="str_err__add_new_memoir__err_date">لطفا تاریخ را بررسی کنید</string>
+    <string name="str_err__add_new_memoir__err_public">خطایی از سمت سرور رخ داد ، لطفا دوباره امتحان کنید</string>
+    <string name="str_suc__add_new_memoir__suc">با موفقیت ثبت شد</string>
+    <string name="str_err__add_new_memoir__err_duplicate_link">متاسفانه این لینک وارد شده تکراری است</string>
+
+    <string name="str_err__not_open_memoir">متاسفانه این خاطره توسط نویسنده غیر قابل نمایش شده</string>
+    <string name="str_err__not_confirmation_memoir">متاسفانه این خاطره هنوز تایید نشده</string>
+
+</resources>

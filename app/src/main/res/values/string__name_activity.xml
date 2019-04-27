@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ActivityMain">خاطرات</string>
+    <string name="ActivityAddNewMemoir">افزودن خاطره جدید</string>
+    <string name="ActivityGetMemoirUser">لیست خاطرات</string>
+    <string name="ActivityShowMemoir">خاطره</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="address_page">http://localhost/</string>
+
+    <string name="address_page__request">Request</string>
+
+    <string name="address_page_request">https://www.gym.cyrusblog.ir/Request</string>
+    <string name="address_get_name_city">/GetCity.php</string>
+
+    <string name="ap__CheckInfoLogin">CheckInfoLogin</string>
+    <string name="ap__record_new_memoir">RecordNewMemoir</string>
+    <string name="ap__get_memoir_user">GetMemoirUser</string>
+    <string name="ap__delete_memoir_user">DelMemoirUser</string>
+    <string name="ap__get_memoir">GetMemoir</string>
+    <string name="ap__get_subject">GetSubject</string>
+    <string name="ap__update_like">LikeUser</string>
+    <string name="ap__update_comment">CommentUser</string>
+    <string name="ap__update_visit">VisitMemoir</string>
+
+</resources>

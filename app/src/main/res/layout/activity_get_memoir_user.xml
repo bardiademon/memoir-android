@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_10"
+
+    android:orientation="vertical"
+    tools:context=".Activity.Get.ActivityGetMemoirUser">
+
+
+    <ListView
+        android:id="@+id/id__activity_get_memoir_user__list_memoir"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/id__activity_get_memoir_user__close_activity"
+            style="@style/style__activity_add_new_memoir__btn"
+            android:fontFamily="@font/dubai_bedium"
+            android:text="@string/str__back"
+            android:textColor="@color/COLOR_BLACK" />
+
+        <Button
+            android:id="@+id/id__activity_get_memoir_user__add_new"
+            style="@style/style__activity_add_new_memoir__btn"
+            android:fontFamily="@font/dubai_bold"
+            android:text="@string/str__new"
+            android:textColor="@color/COLOR_BLACK" />
+
+    </LinearLayout>
+
+</LinearLayout>

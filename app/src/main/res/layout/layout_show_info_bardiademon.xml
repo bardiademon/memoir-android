@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@color/COLOR_BLACK"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/iranian_sans"
+                        android:text="@string/string__layout_show_info_bardiademon"
+                        android:textColor="@color/COLOR_WHITE" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_one_info">
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_image">
+
+                        <ImageView
+                            style="@style/style__layout_show_info_bardiademon__show_image"
+                            android:src="@drawable/pic_email" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_txt_info">
+
+                        <TextView
+                            style="@style/style__layout_show_info_bardiademon__show_txt_info"
+                            android:text="@string/bardiademon__email" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_open_link">
+
+                        <ImageView
+                            android:id="@+id/id__layout_show_info_bardiademon__open_link__email"
+                            style="@style/style__layout_show_info_bardiademon__img_open_link" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_one_info">
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_image">
+
+                        <ImageView
+                            style="@style/style__layout_show_info_bardiademon__show_image"
+                            android:src="@drawable/pic_telegram" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_txt_info">
+
+                        <TextView
+                            style="@style/style__layout_show_info_bardiademon__show_txt_info"
+                            android:text="@string/bardiademon" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_open_link">
+
+                        <ImageView
+                            android:id="@+id/id__layout_show_info_bardiademon__open_link__telegram"
+                            style="@style/style__layout_show_info_bardiademon__img_open_link" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/style__layout_show_info_bardiademon__ll_show_one_info"
+                    android:baselineAligned="false">
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_image">
+
+                        <ImageView
+                            style="@style/style__layout_show_info_bardiademon__show_image"
+                            android:src="@drawable/pic_instagram" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_show_txt_info">
+
+                        <TextView
+                            style="@style/style__layout_show_info_bardiademon__show_txt_info"
+                            android:text="@string/bardiademon" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style__layout_show_info_bardiademon__ll_open_link">
+
+                        <ImageView
+                            android:id="@+id/id__layout_show_info_bardiademon__open_link__instagram"
+                            style="@style/style__layout_show_info_bardiademon__img_open_link" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bardiademon" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

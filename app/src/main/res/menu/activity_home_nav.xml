@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/id__activity_home_nav__group_user">
+        <item
+            android:id="@+id/id__activity_home_nav__add_new_memoir"
+            android:icon="@drawable/add_new"
+            android:title="@string/string__activity_home_nav__add_new_memoir" />
+        <item
+            android:id="@+id/id__activity_home_nav__list_memoir"
+            android:icon="@drawable/list"
+            android:title="@string/string__activity_home_nav__list_memoir" />
+        <item
+            android:id="@+id/id__activity_home_nav__search_user_memoir"
+            android:icon="@drawable/search_list"
+            android:title="@string/string__activity_home_nav__search_in_list_user" />
+    </group>
+
+    <group android:id="@+id/id__activity_home_nav__group_all_user">
+
+        <item
+            android:id="@+id/id__activity_home_nav__the_last_memories"
+            android:icon="@drawable/last"
+            android:title="@string/string__activity_home_nav__the_last_memories" />
+        <item
+            android:id="@+id/id__activity_home_nav__all_memories"
+            android:icon="@drawable/list"
+            android:title="@string/string__activity_home_nav__all_memories" />
+
+        <item
+            android:id="@+id/id__activity_home_nav__search_user"
+            android:icon="@drawable/search"
+            android:title="@string/string__activity_home_nav__search" />
+    </group>
+
+    <group android:id="@+id/id__activity_home_nav__group_profile">
+
+        <item
+            android:id="@+id/id__activity_home_nav__profile"
+            android:title="@string/string__activity_home_nav__profile" />
+
+    </group>
+
+    <item
+        android:id="@+id/id__activity_home_nav__logout"
+        android:title="@string/string__activity_home_nav__logout" />
+
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#37474f</color>
+    <color name="colorAccent">#3F51B5</color>
+
+    <color name="clr__AAddNewMemoir__background_description">#3c4d56</color>
+    <color name="clr__AAddNewMemoir__text_color_title_description">#ffffff</color>
+    <color name="clr__AAddNewMemoir__text_color_message_description">#c6c6c6</color>
+
+    <color name="grey_10">#e6e6e6</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="grey_40">#999999</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="grey_60">#666666</color>
+    <color name="blue_grey_300">#90A4AE</color>
+    <color name="colorPrimaryLight">#1E88E5</color>
+    <color name="grey_90">#263238</color>
+    <color name="grey_5">#f2f2f2</color>
+    <color name="grey_80">#37474F</color>
+
+
+</resources>

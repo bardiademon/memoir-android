@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Memoir</string>
+    <string name="time_stopped">13:09:46</string>
+    <string name="time_stopped_1">13:09:47</string>
+    <string name="march_april_2014">March - April 2014</string>
+
+    <string name="text_splash">عشق یعنی گم شدن پیدا شدن\n\n
+ عشق یعنی غرق در رویا شدن\n\n
+عشق یعنی حسرت دیدار تو\n\n
+عشق یعنی من شوم بیمار تو</string>
+    <string name="string__activity_home_nav__add_new_memoir">افزودن خاطره</string>
+    <string name="string__activity_home_nav__list_memoir">لیست خاطرات شما</string>
+    <string name="string__activity_home_nav__search_in_list_user">جستجو در لیست شما</string>
+    <string name="string__activity_home_nav__the_last_memories">آخرین خاطرات</string>
+    <string name="string__activity_home_nav__all_memories">تمام خاطرات</string>
+    <string name="string__activity_home_nav__search">جستجو</string>
+    <string name="string__activity_home_nav__profile">پروفایل</string>
+    <string name="string__activity_home_nav__logout">خروج از حساب</string>
+    <string name="login">ورود</string>
+    <string name="username">نام کاربری</string>
+    <string name="password">گذرر واژه</string>
+    <string name="register">ثبت نام</string>
+    <string name="sign_in_with_google">ورود با حساب گوگل</string>
+
+    <string name="info_invalid">اطلاعات معتبر نیست!</string>
+    <string name="ostensible">قابل نمایش</string>
+
+    <string name="toast_error__activity_add_new_memoir__err_date">لطفا زمان را تنها عدد وارد کنید</string>
+    <string name="toast_error__activity_add_new_memoir__err_link">لطفا تنها حروف انگلیسی یا عدد یا _ وارد کنید (اولین کلمه حروف انگلیسی یا _)</string>
+
+    <string name="str_err_msg">متاسفانه خطایی رخ داد لطفا مجدد تلاش کنید</string>
+    <string name="str__back">برگشت</string>
+    <string name="str__new">جدید</string>
+    <string name="confirmation">تایید</string>
+    <string name="open">باز</string>
+    <string name="edit">ویرایش</string>
+    <string name="this_is_subject">این موضوع است</string>
+    <string name="this_is_name">این نام است</string>
+    <string name="open_true_false">باز یا بسته بودن خاطره</string>
+    <string name="confirmation_memoir">تایید خاطره</string>
+    <string name="delete">حذف</string>
+    <string name="this_name_memoir">نام خاطره</string>
+    <string name="date1393">1393</string>
+    <string name="_955">955</string>
+    <string name="_1k">1K</string>
+    <string name="zer0">0</string>
+    <string name="str_not_send_link_memoir">خطایی رخ داد</string>
+    <string name="bardia_demon">Bardia Demon</string>
+    <string name="l_i_n_k">L I N K</string>
+    <string name="str_txt_hint_snd_cmnt">دیدگاه . . .</string>
+
+</resources>

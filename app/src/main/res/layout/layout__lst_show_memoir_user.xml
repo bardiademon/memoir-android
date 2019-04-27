@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_10"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@color/COLOR_WHITE"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/layout__lst_show_memoir_user__txt_show_name"
+                style="@style/style__layout_lst_memoir_user__txt_name_and_subject"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/this_is_name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <ImageView
+                            android:id="@+id/layout__lst_show_memoir_user__img_confirmation"
+                            style="@style/style__layout_lst_memoir_user__img"
+                            android:contentDescription="@string/confirmation_memoir"
+                            android:src="@drawable/pic_accepted" />
+
+                        <TextView
+                            style="@style/style__layout_lst_memoir_user__txt"
+                            android:text="@string/confirmation" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="UselessParent">
+
+                        <ImageView
+                            android:id="@+id/layout__lst_show_memoir_user__img_open"
+                            style="@style/style__layout_lst_memoir_user__img"
+                            android:contentDescription="@string/open_true_false"
+                            android:src="@drawable/pic_accepted" />
+
+                        <TextView
+                            style="@style/style__layout_lst_memoir_user__txt"
+                            android:text="@string/open" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/edt_show_link">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/link" />
+
+                <TextView
+                    android:id="@+id/layout__lst_show_memoir_user__txt_show_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/COLOR_WHITE"
+                    android:fontFamily="@font/dubai_bight"
+                    android:padding="15dp"
+                    android:text="@string/l_i_n_k" />
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/share" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/layout__lst_show_memoir_user__btn_delete"
+                    style="@style/style__layout_lst_memoir_user__btn"
+                    android:text="@string/delete"
+                    android:textColor="@color/COLOR_DELETE" />
+
+                <Button
+                    android:id="@+id/layout__lst_show_memoir_user__btn_change"
+                    style="@style/style__layout_lst_memoir_user__btn"
+                    android:text="@string/edit"
+                    android:textColor="@color/color_change" />
+
+                <Button
+                    android:id="@+id/layout__lst_show_memoir_user__btn_show"
+                    style="@style/style__layout_lst_memoir_user__btn"
+                    android:text="@string/show"
+                    android:textColor="@color/color_show" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
