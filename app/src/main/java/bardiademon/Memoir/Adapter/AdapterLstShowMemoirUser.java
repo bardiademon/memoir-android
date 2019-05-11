@@ -28,8 +28,6 @@ import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 @bardiademon
 public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
 {
-    private static final int RES = R.layout.layout__lst_show_memoir_user;
-
     private TextView txtName, txtLink;
     private ImageView imgOpen, imgConfirmation;
     private Button btnShow, btnChange, btnDelete;
@@ -41,17 +39,17 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
     @bardiademon
     public AdapterLstShowMemoirUser (ArrayList <FoundMemoirUser> foundMemoirUsers)
     {
-        super (G.getActivity () , RES , foundMemoirUsers);
+        super (G.getActivity () , R.layout.layout__lst_show_memoir_user , foundMemoirUsers);
         this.foundMemoirUsers = foundMemoirUsers;
     }
 
     @bardiademon
-    @SuppressLint ("ViewHolder")
+    @SuppressLint ({"ViewHolder" , "InflateParams"})
     @NonNull
     @Override
     public View getView (int position , @Nullable View view , @NonNull ViewGroup parent)
     {
-        view = G.getActivity ().getLayoutInflater ().inflate (RES , null);
+        view = G.getActivity ().getLayoutInflater ().inflate (R.layout.layout__lst_show_memoir_user , null);
         setTools (view);
         FoundMemoirUser foundMemoirUser = foundMemoirUsers.get (position);
         setOnClick (foundMemoirUser.Id , position , foundMemoirUser.Link);

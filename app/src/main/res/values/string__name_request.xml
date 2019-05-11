@@ -23,9 +23,7 @@
 
     <!-- nrh => name request header -->
 
-    <string name="name_request__register_gym">register_gym</string>
 
-    <string name="name_request__get_id_groups_bodybuilding_or_diet_for_user">get_id_groups_bodybuilding_or_diet_for_user</string>
     <string name="nr__for">for</string>
 
     <string name="nr__name">name</string>
@@ -54,5 +52,35 @@
 
     <string name="nr__link_memoir">lnk_memoir</string>
     <string name="nr__liked">liked</string>
+
+    <string name="nr__id_memoir">id_memoir</string>
+    <string name="nrh__get_comment">get_comment</string>
+
+    <!-- ciiinc => CheckIsInINeedCmnt-->
+    <string name="nrh__ciiinc">ciiinc</string>
+
+    <!-- sinic => SetINeedIt-->
+    <string name="nrh__sinic">sinic</string>
+
+    <!-- lnkm => link memoir -->
+    <string name="nr__lnkm">lnkm</string>
+    <!-- idc => id comment -->
+    <string name="nr__idc">idc</string>
+
+    <!-- delcmnt => Delete Comment -->
+    <string name="nrh__delcmnt">delcmnt</string>
+
+
+    <!-- r => report -->
+    <string name="nrh__report">report</string>
+
+    <string name="nr__username_r">usrnmrprt</string>
+    <string name="nr__text_r">t</string>
+    <string name="nr__report_related">rr</string>
+    <string name="nr__des_r">d</string>
+
+
+    <string name="nrh__new_comment">nc</string>
+
 
 </resources>

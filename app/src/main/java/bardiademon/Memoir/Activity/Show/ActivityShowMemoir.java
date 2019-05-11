@@ -6,10 +6,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import bardiademon.Memoir.FoundMemoir;
+import java.util.ArrayList;
+import java.util.List;
+
+import bardiademon.Memoir.Adapter.AdapterLstShowCommentMemoir;
+import bardiademon.Memoir.Server.Found.FoundComment;
+import bardiademon.Memoir.Server.Found.FoundMemoir;
 import bardiademon.Memoir.Fragment.FragmentComment;
 import bardiademon.Memoir.Other.GetResPicShowMemoir;
 import bardiademon.Memoir.R;
+import bardiademon.Memoir.Server.Get.GetComment;
 import bardiademon.Memoir.Server.GetMemoir;
 import bardiademon.Memoir.Server.Update.UpdateLVC;
 import bardiademon.Memoir.bardiademon.Class.BeforeRunActivity.G;
@@ -17,6 +23,7 @@ import bardiademon.Memoir.bardiademon.Class.Other.ActiveSwitching;
 import bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues;
 import bardiademon.Memoir.bardiademon.Class.View.Icon;
 import bardiademon.Memoir.bardiademon.Class.View.ShowMessage;
+import bardiademon.Memoir.bardiademon.Class.View.Toast;
 import bardiademon.Memoir.bardiademon.Class.View.Wait;
 import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 import bardiademon.Memoir.bardiademon.Interface.Activity;
@@ -24,20 +31,29 @@ import bardiademon.Memoir.bardiademon.Interface.Activity;
 @bardiademon
 public class ActivityShowMemoir extends AppCompatActivity implements Activity
 {
-    private TextView txtName, txtSub, txtVisit, txtVisitUser, txtLike, txtComment;
+    private TextView txtName, txtSub, txtVisit, txtVisitUser, txtLike;
+    private static TextView txtComment;
     private ImageView comment;
     private ImageButton like;
     private ImageView image;
 
     private TextView txtShowText;
 
-    private String linkMemoir;
+    private static String linkMemoir;
 
     private GetMemoir getMemoir;
 
     public static final String NAME_INTENT__LINK = "link_memoir";
 
     private boolean likeMemoir;
+
+    private GetComment getComment;
+
+    private static boolean IsMemoirForMe;
+
+    private static AdapterLstShowCommentMemoir Adapter;
+
+    private static List <FoundComment> FoundComments;
 
     @bardiademon
     @Override
@@ -91,16 +107,27 @@ public class ActivityShowMemoir extends AppCompatActivity implements Activity
     public void SetOnClick ()
     {
         like.setOnClickListener (v -> like (!likeMemoir , false));
-        comment.setOnClickListener (v ->
-        {
-            FragmentComment fragmentComment = new FragmentComment ();
-            fragmentComment.show (getSupportFragmentManager () , "");
-        });
+        comment.setOnClickListener (v -> getComment ());
     }
 
+    @bardiademon
     private void getComment ()
     {
+        getComment = new GetComment (this::afterGetComment , linkMemoir);
+    }
 
+    @bardiademon
+    private void afterGetComment ()
+    {
+        if (!getComment.AnswerServerOrResult ())
+        {
+            Toast.ToastReady.NOT_FOUND ();
+            FoundComments = new ArrayList <> ();
+        }
+        else FoundComments = getComment.getFoundComments ();
+        Adapter = new AdapterLstShowCommentMemoir (FoundComments , getComment.getInfoUserFFC ());
+        FragmentComment fragmentComment = new FragmentComment ();
+        fragmentComment.show (getSupportFragmentManager () , "");
     }
 
     @bardiademon
@@ -165,6 +192,7 @@ public class ActivityShowMemoir extends AppCompatActivity implements Activity
         txtShowText.setText (memoir.Text);
         like (memoir.Liked , true);
         if (!memoir.IsMemoirForMe) visit ();
+        ActivityShowMemoir.IsMemoirForMe = memoir.IsMemoirForMe;
     }
 
     @bardiademon
@@ -202,5 +230,52 @@ public class ActivityShowMemoir extends AppCompatActivity implements Activity
     public void onBackPressed ()
     {
         new ActiveSwitching (G.getActivityClassForBack ());
+    }
+
+    @bardiademon
+    public static boolean IsMemoirForMe ()
+    {
+        return IsMemoirForMe;
+    }
+
+    @bardiademon
+    public static AdapterLstShowCommentMemoir GetAdapter ()
+    {
+        return Adapter;
+    }
+
+    @bardiademon
+    public static void RemoveFromFoundComment (int IndexRemove)
+    {
+        if (IndexRemove < 0 || IndexRemove >= FoundComments.size ()) return;
+        FoundComments.remove (IndexRemove);
+        Adapter.notifyDataSetChanged ();
+        int numberOfComment = Integer.parseInt (txtComment.getText ().toString ());
+        if (numberOfComment > 0) txtComment.setText (String.valueOf (--numberOfComment));
+    }
+
+    @bardiademon
+    public static String GetLinkMemoir ()
+    {
+        return linkMemoir;
+    }
+
+    public static List <FoundComment> GetFoundComments ()
+    {
+        return FoundComments;
+    }
+
+    @Override
+    protected void onDestroy ()
+    {
+        super.onDestroy ();
+        Null ();
+    }
+
+    private void Null ()
+    {
+        FoundComments = null;
+        Adapter = null;
+        txtComment = null;
     }
 }

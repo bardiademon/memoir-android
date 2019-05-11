@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="bardiademon.Memoir.Fragment.FragmentComment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,16 +23,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/id__layout_fragment_comment__send_comment"
+            android:src="@drawable/send_comment"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
         <EditText
             android:id="@+id/id__layout_fragment__txt_snd_cmnt"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_gravity="center"
             android:background="@drawable/background_txt_comment"
             android:fontFamily="@font/iranian_sans"
             android:hint="@string/str_txt_hint_snd_cmnt"
             android:padding="15dp"
             android:textColorHint="@color/COLOR_BLACK" />
+
 
     </LinearLayout>
 

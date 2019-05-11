@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".Dialog.DialogOptionComment">
+
+    <!-- ldsocc => Layout Dialog Show Option Click Comment -->
+
+    <Button
+        android:id="@+id/id__ldsocc__btn_show_profile"
+        style="@style/style__btn__ldsocc"
+        android:text="@string/show_profile" />
+
+    <View style="@style/style__ldsocc__view" />
+
+    <Button
+        android:id="@+id/id__ldsocc__btn_i_need_it"
+        style="@style/style__btn__ldsocc"
+        android:layout_margin="5dp"
+        android:text="@string/please_wait" />
+
+    <View style="@style/style__ldsocc__view" />
+
+    <Button
+        android:id="@+id/id__ldsocc__btn_cpy_txt_comment"
+        style="@style/style__btn__ldsocc"
+        android:text="@string/copy" />
+
+    <View style="@style/style__ldsocc__view" />
+
+    <Button
+        android:id="@+id/id__ldsocc__btn_report"
+        style="@style/style__btn__ldsocc"
+        android:text="@string/report"
+        android:textColor="@color/COLOR_RED" />
+
+    <View style="@style/style__ldsocc__view" />
+
+    <Button
+        android:id="@+id/id__ldsocc__btn_delete"
+        style="@style/style__btn__ldsocc"
+        android:layout_margin="5dp"
+        android:text="@string/delete"
+        android:textColor="@color/COLOR_DELETE" />
+
+</LinearLayout>

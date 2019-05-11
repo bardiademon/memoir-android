@@ -18,7 +18,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".Activity.Show.ActivityShowMemoir"></activity>
+        <activity android:name=".Activity.Show.ActivityShowProfile"></activity>
+        <activity android:name=".Activity.Show.ActivityShowMemoir" />
         <activity android:name=".Activity.Get.ActivityGetMemoirUser" />
         <activity android:name=".Activity.ActivitySplash">
             <intent-filter>

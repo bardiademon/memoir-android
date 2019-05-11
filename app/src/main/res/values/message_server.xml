@@ -12,4 +12,6 @@
     <string name="str_err__not_open_memoir">متاسفانه این خاطره توسط نویسنده غیر قابل نمایش شده</string>
     <string name="str_err__not_confirmation_memoir">متاسفانه این خاطره هنوز تایید نشده</string>
 
+    <string name="str_err__deactive_account">متاسفانه حساب کاربری شما غیر فعال شده است</string>
+
 </resources>

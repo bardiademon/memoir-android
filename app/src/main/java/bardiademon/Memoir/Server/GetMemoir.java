@@ -2,7 +2,7 @@ package bardiademon.Memoir.Server;
 
 import org.json.JSONException;
 
-import bardiademon.Memoir.FoundMemoir;
+import bardiademon.Memoir.Server.Found.FoundMemoir;
 import bardiademon.Memoir.Other.MakeHeader;
 import bardiademon.Memoir.Server.AnswerServer.KJS.KJSGetMemoir;
 import bardiademon.Memoir.bardiademon.Class.Other.CloseTheApp;

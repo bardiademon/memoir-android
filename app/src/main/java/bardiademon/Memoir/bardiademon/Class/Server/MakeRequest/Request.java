@@ -21,10 +21,10 @@ public class Request
 
     public static final int TYPE_NEW_PUT = -1, TYPE_INT = 0, TYPE_STRING = 1, TYPE_BOOL = 2, TYPE_LONG = 3, TYPE_FLOAT = 4, TYPE_DOUBLE = 5, TYPE_SHORT = 6;
 
-    private static Map<Integer, Map<List<Integer>, Map<String, Object>>> Put;
+    private static Map <Integer, Map <List <Integer>, Map <String, Object>>> Put;
 
-    private Map<String, Object> PutTakenInternalValue;
-    private List<Integer> TypeTakenInternalValue;
+    private Map <String, Object> PutTakenInternalValue;
+    private List <Integer> TypeTakenInternalValue;
     private JSONObject resultBuild;
     private boolean built = false;
     private boolean paramEmpty;
@@ -54,8 +54,8 @@ public class Request
         private int Type;
         private String Name;
         private Object Value;
-        private Map<String, Object> put;
-        private List<Integer> type;
+        private Map <String, Object> put;
+        private List <Integer> type;
         private int counter = 0;
 
         private boolean encode;
@@ -120,14 +120,14 @@ public class Request
             Put (Name , getPut ());
         }
 
-        public void Put (String Name , Map<List<Integer>, Map<String, Object>> getPut)
+        public void Put (String Name , Map <List <Integer>, Map <String, Object>> getPut)
         {
             Put (Name , getPut , TYPE_NEW_PUT);
         }
 
-        public Map<List<Integer>, Map<String, Object>> getPut ()
+        public Map <List <Integer>, Map <String, Object>> getPut ()
         {
-            Map<List<Integer>, Map<String, Object>> Put = new LinkedHashMap<> ();
+            Map <List <Integer>, Map <String, Object>> Put = new LinkedHashMap <> ();
             Put.put (type , put);
             clear ();
             return Put;
@@ -143,16 +143,16 @@ public class Request
 
         private void OneApply ()
         {
-            if (type == null) type = new ArrayList<> ();
-            if (put == null) put = new LinkedHashMap<> ();
+            if (type == null) type = new ArrayList <> ();
+            if (put == null) put = new LinkedHashMap <> ();
             type.add (Type);
             put.put (Name , Value);
         }
 
         public void Apply ()
         {
-            if (Request.Put == null) Request.Put = new LinkedHashMap<> ();
-            Map<List<Integer>, Map<String, Object>> put = new LinkedHashMap<> ();
+            if (Request.Put == null) Request.Put = new LinkedHashMap <> ();
+            Map <List <Integer>, Map <String, Object>> put = new LinkedHashMap <> ();
             put.put (type , this.put);
             Request.Put.put (counter++ , put);
             clear ();
@@ -169,9 +169,9 @@ public class Request
         try
         {
             resultBuild = new JSONObject ();
-            for (Map.Entry<Integer, Map<List<Integer>, Map<String, Object>>> entry : Put.entrySet ())
+            for (Map.Entry <Integer, Map <List <Integer>, Map <String, Object>>> entry : Put.entrySet ())
             {
-                Map.Entry<List<Integer>, Map<String, Object>> next = entry.getValue ().entrySet ().iterator ().next ();
+                Map.Entry <List <Integer>, Map <String, Object>> next = entry.getValue ().entrySet ().iterator ().next ();
                 Build (next.getKey () , next.getValue () , true);
             }
             built = true;
@@ -182,7 +182,7 @@ public class Request
         }
     }
 
-    private JSONObject Build (List<Integer> Type , Map<String, Object> Put , boolean putJsonMain) throws JSONException
+    private JSONObject Build (List <Integer> Type , Map <String, Object> Put , boolean putJsonMain) throws JSONException
     {
         JSONObject jsonObject = null;
         if (!putJsonMain) jsonObject = new JSONObject ();
@@ -190,7 +190,7 @@ public class Request
         Object Value;
         int counter = 0;
         int type;
-        for (Map.Entry<String, Object> entry : Put.entrySet ())
+        for (Map.Entry <String, Object> entry : Put.entrySet ())
         {
             type = Type.get (counter++);
             Name = entry.getKey ();
@@ -249,8 +249,8 @@ public class Request
                 {
                     if (Value instanceof Map)
                     {
-                        Map<List<Integer>, Map<String, Object>> put = (Map<List<Integer>, Map<String, Object>>) Value;
-                        Map.Entry<List<Integer>, Map<String, Object>> next1 = put.entrySet ().iterator ().next ();
+                        Map <List <Integer>, Map <String, Object>> put = (Map <List <Integer>, Map <String, Object>>) Value;
+                        Map.Entry <List <Integer>, Map <String, Object>> next1 = put.entrySet ().iterator ().next ();
                         resultBuild.put (Name , Build (next1.getKey () , next1.getValue () , false));
                         break;
                     }
@@ -266,8 +266,8 @@ public class Request
         {
             try
             {
-                Map<List<Integer>, Map<String, Object>> value = (Map<List<Integer>, Map<String, Object>>) valueObject;
-                Map.Entry<List<Integer>, Map<String, Object>> next = value.entrySet ().iterator ().next ();
+                Map <List <Integer>, Map <String, Object>> value = (Map <List <Integer>, Map <String, Object>>) valueObject;
+                Map.Entry <List <Integer>, Map <String, Object>> next = value.entrySet ().iterator ().next ();
                 TypeTakenInternalValue = next.getKey ();
                 PutTakenInternalValue = next.getValue ();
                 return true;
@@ -279,12 +279,12 @@ public class Request
         return false;
     }
 
-    private List<Integer> getListTakenInternalValue ()
+    private List <Integer> getListTakenInternalValue ()
     {
         return TypeTakenInternalValue;
     }
 
-    private Map<String, Object> getValueTakenInternalValue ()
+    private Map <String, Object> getValueTakenInternalValue ()
     {
         return PutTakenInternalValue;
     }
@@ -294,16 +294,16 @@ public class Request
         return resultBuild;
     }
 
-    public Map<String, String> getParam ()
+    public Map <String, String> getParam ()
     {
         if (isBuilt ())
         {
-            Map<String, String> param = new LinkedHashMap<> ();
+            Map <String, String> param = new LinkedHashMap <> ();
             param.put (GetValues.getString ("name_post__request") , getResultBuild ().toString ());
             return param;
         }
         else if (paramEmpty) return getParamJsonEmpty ();
-        else return new LinkedHashMap<> ();
+        else return new LinkedHashMap <> ();
     }
 
 
@@ -312,9 +312,9 @@ public class Request
         paramEmpty = true;
     }
 
-    public Map<String, String> getParamJsonEmpty ()
+    public Map <String, String> getParamJsonEmpty ()
     {
-        Map<String, String> param = new LinkedHashMap<> ();
+        Map <String, String> param = new LinkedHashMap <> ();
         param.put (GetValues.getString ("name_post__request") , "{}");
         return param;
     }
@@ -328,5 +328,32 @@ public class Request
     public String toString ()
     {
         return getResultBuild ().toString ();
+    }
+
+    public final static class Ready
+    {
+
+        public static Request SetOneRequest (String Key , Object Value)
+        {
+            Request request = new Request ();
+            Request.Put put = new Request.Put ();
+            if (Value instanceof String) put.Put (GetValues.getString (Key) , (String) Value);
+            else if (Value instanceof Integer) put.Put (GetValues.getString (Key) , (int) Value);
+            else if (Value instanceof Double) put.Put (GetValues.getString (Key) , (double) Value);
+            else if (Value instanceof Float) put.Put (GetValues.getString (Key) , (float) Value);
+            else if (Value instanceof Boolean)
+                put.Put (GetValues.getString (Key) , (boolean) Value);
+            else if (Value instanceof Short) put.Put (GetValues.getString (Key) , (short) Value);
+            else if (Value instanceof Long) put.Put (GetValues.getString (Key) , (long) Value);
+            else put.Put (GetValues.getString (Key) , Value.toString ());
+            put.Apply ();
+            request.Apply ();
+            return request;
+        }
+
+        public static Request SetRequestId (int Id)
+        {
+            return SetOneRequest ("nr__id" , Id);
+        }
     }
 }

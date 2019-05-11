@@ -77,11 +77,17 @@ public class ActivityLogin extends AppCompatActivity implements Activity
         }
     }
 
-    private void afterSetLogin (boolean validInfo)
+    private void afterSetLogin (boolean validInfo , boolean isMServer , String messageServer)
     {
         Wait.CloseWait ();
         if (validInfo) new ActiveSwitching (ActivityMain.class);
-        else Toast.show (Icon.ICON_ERROR , GetValues.getString ("info_invalid"));
+        else
+        {
+            String message;
+            if (isMServer) message = messageServer;
+            else message = GetValues.getString ("info_invalid");
+            Toast.show (Icon.ICON_ERROR , message);
+        }
     }
 
     @bardiademon

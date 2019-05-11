@@ -31,7 +31,7 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
     private boolean done;
 
     @bardiademon
-    public RecordNewMemoir (ExchangeInformationWithTheServer.AfterExchange AfterExchange, String Name, String Subject, String Link, String Date, String Text, boolean Open)
+    public RecordNewMemoir (ExchangeInformationWithTheServer.AfterExchange AfterExchange , String Name , String Subject , String Link , String Date , String Text , boolean Open)
     {
         this.afterExchange = AfterExchange;
         this.name = Name;
@@ -58,12 +58,12 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
         request = new Request ();
         Request.Put put = new Request.Put ();
 
-        put.Put (getString ("nr__name"), Encode.encode (name));
-        put.Put (getString ("nr__subject"), Encode.encode (subject));
-        put.Put (getString ("nr__link"), link);
-        put.Put (getString ("nr__date"), date);
-        put.Put (getString ("nr__text"), Encode.encode (text));
-        put.Put (getString ("nr__open"), open);
+        put.Put (getString ("nr__name") , Encode.encode (name));
+        put.Put (getString ("nr__subject") , Encode.encode (subject));
+        put.Put (getString ("nr__link") , link);
+        put.Put (getString ("nr__date") , date);
+        put.Put (getString ("nr__text") , Encode.encode (text));
+        put.Put (getString ("nr__open") , open);
 
         put.Apply ();
         request.Apply ();
@@ -73,11 +73,12 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
     @Override
     public void Exchange ()
     {
-        System.out.println (request.getParam ().toString ());
         assert request != null;
         if (request.isBuilt ())
         {
-            sendInfoToServer = new SendInfoToServer (this::AfterExchange, Url.GetUrl ("ap__record_new_memoir"), request.getParam ());
+            System.out.println (request.getParam ());
+            System.out.println (MakeHeader.MakeHeaderLogin (getString ("name_request__record_new_memoir")));
+            sendInfoToServer = new SendInfoToServer (this::AfterExchange , Url.GetUrl ("ap__record_new_memoir") , request.getParam ());
             sendInfoToServer.setHeader (MakeHeader.MakeHeaderLogin (getString ("name_request__record_new_memoir")));
             sendInfoToServer.apply ();
         }
@@ -96,17 +97,17 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
             switch (answerServer)
             {
                 case AnswerServer.RecordNewMemoir.SC200.RECORDED:
-                    setErrorFromServer ("str_suc__add_new_memoir__suc", false);
+                    setErrorFromServer ("str_suc__add_new_memoir__suc" , false);
                     break;
                 case AnswerServer.RecordNewMemoir.SC200.ERROR_DATE:
-                    setErrorFromServer ("str_err__add_new_memoir__err_date", true);
+                    setErrorFromServer ("str_err__add_new_memoir__err_date" , true);
                     break;
                 case AnswerServer.RecordNewMemoir.SC200.ERROR_LINK:
-                    setErrorFromServer ("str_err__add_new_memoir__err_link", true);
+                    setErrorFromServer ("str_err__add_new_memoir__err_link" , true);
                     break;
                 case AnswerServer.RecordNewMemoir.SC200.NOT_RECORDED:
                 default:
-                    setErrorFromServer ("str_err__add_new_memoir__err_public", true);
+                    setErrorFromServer ("str_err__add_new_memoir__err_public" , true);
                     break;
             }
         }
@@ -118,17 +119,17 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
                 switch (answerServer)
                 {
                     case AnswerServer.RecordNewMemoir.SC400.DUPLICATE_LINK:
-                        setErrorFromServer ("str_err__add_new_memoir__err_duplicate_link", true);
+                        setErrorFromServer ("str_err__add_new_memoir__err_duplicate_link" , true);
                         break;
                     case AnswerServer.RecordNewMemoir.NOT_LOGGED_IN:
                         Login.LogOut ();
                         break;
                     default:
-                        setErrorFromServer ("str_err__add_new_memoir__err_public", true);
+                        setErrorFromServer ("str_err__add_new_memoir__err_public" , true);
                         break;
                 }
             }
-            else setErrorFromServer ("str_err__add_new_memoir__err_public", true);
+            else setErrorFromServer ("str_err__add_new_memoir__err_public" , true);
         }
         afterExchange.Callback ();
     }
@@ -140,7 +141,7 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
         return done;
     }
 
-    private void setErrorFromServer (String keyMessage, boolean isError)
+    private void setErrorFromServer (String keyMessage , boolean isError)
     {
         this.messageServer = getString (keyMessage);
         errorFromServer = isError;

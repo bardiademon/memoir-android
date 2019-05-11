@@ -21,25 +21,25 @@ import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 public class SendInfoToServer
 {
     private String url;
-    private Map<String, String> param;
+    private Map <String, String> param;
     private String paramRaw;
-    private Map<String, String> header;
+    private Map <String, String> header;
     private int method, methodSendParam;
     private int code;
 
     private int resultSend;
     private String answerServer;
 
-    private static final int CODE_DONE = 200;
-    private static final int METHOD_SEND_PARAM__GET = 0, METHOD_SEND_PARAM__NORMAL = 1, METHOD_SEND_PARAM__RAW = 2;
-    private static final int DEFAULT_METHOD = Request.Method.POST;
-    private static final int RESULT_SEND__SEND = 0, RESULT_SEND__SEND_AND_GET_ANSWER = 1, RESULT_SEND__ERROR_SEND = 2, RESULT_SEND__ERROR_SEND__GET_RESULT = 4, RESULT_SEND__ERROR_GET = 3;
+    private final int CODE_DONE = 200;
+    private final int METHOD_SEND_PARAM__GET = 0, METHOD_SEND_PARAM__NORMAL = 1, METHOD_SEND_PARAM__RAW = 2;
+    private final int DEFAULT_METHOD = Request.Method.POST;
+    private final int RESULT_SEND__SEND = 0, RESULT_SEND__SEND_AND_GET_ANSWER = 1, RESULT_SEND__ERROR_SEND = 2, RESULT_SEND__ERROR_SEND__GET_RESULT = 4, RESULT_SEND__ERROR_GET = 3;
     private StringRequest stringRequest;
 
     private ExchangeInformationWithTheServer.AfterExchange afterExchange;
 
     @bardiademon
-    public SendInfoToServer (ExchangeInformationWithTheServer.AfterExchange afterExchange , String url , Map<String, String> param)
+    public SendInfoToServer (ExchangeInformationWithTheServer.AfterExchange afterExchange , String url , Map <String, String> param)
     {
         setAfterDone (afterExchange);
         this.url = url;
@@ -71,7 +71,7 @@ public class SendInfoToServer
     }
 
     @bardiademon
-    public void setHeader (Map<String, String> header)
+    public void setHeader (Map <String, String> header)
     {
         this.header = header;
     }
@@ -88,14 +88,14 @@ public class SendInfoToServer
         stringRequest = new StringRequest (method , url , response () , error ())
         {
             @Override
-            public Map<String, String> getHeaders () throws AuthFailureError
+            public Map <String, String> getHeaders () throws AuthFailureError
             {
                 if (header != null) return header;
                 return super.getHeaders ();
             }
 
             @Override
-            protected Map<String, String> getParams () throws AuthFailureError
+            protected Map <String, String> getParams () throws AuthFailureError
             {
                 if (param != null) return param;
                 else return super.getParams ();
@@ -103,7 +103,7 @@ public class SendInfoToServer
         };
     }
 
-    public void setParamInUrl (Map<String, String> param)
+    public void setParamInUrl (Map <String, String> param)
     {
         int len;
         if (param != null && (len = param.size ()) > 0)
@@ -111,7 +111,7 @@ public class SendInfoToServer
             url += "?";
             StringBuilder finalParam = new StringBuilder ();
             int counter = 0;
-            for (Map.Entry<String, String> entry : param.entrySet ())
+            for (Map.Entry <String, String> entry : param.entrySet ())
             {
                 finalParam.append (entry.getKey ()).append ("=").append (entry.getValue ());
                 if (counter++ + 1 < len) finalParam.append ("&");
@@ -126,7 +126,7 @@ public class SendInfoToServer
         stringRequest = new StringRequest (method , url , response () , error ())
         {
             @Override
-            public Map<String, String> getHeaders () throws AuthFailureError
+            public Map <String, String> getHeaders () throws AuthFailureError
             {
                 if (header != null) return header;
                 return super.getHeaders ();
@@ -142,7 +142,7 @@ public class SendInfoToServer
 
 
     @bardiademon
-    private Response.Listener<String> response ()
+    private Response.Listener <String> response ()
     {
         return response ->
         {

@@ -31,7 +31,7 @@ public abstract class Login
                 Login.Password = Password;
                 IsLogin = true;
             }
-            SetLogin.AfterCheckInfo (checkInfoLogin.AnswerServerOrResult ());
+            SetLogin.AfterCheckInfo (checkInfoLogin.AnswerServerOrResult () , checkInfoLogin.isMServer () , checkInfoLogin.getMsgServer ());
         } , Username , Password);
     }
 
@@ -39,7 +39,7 @@ public abstract class Login
     {
         interface SetLogin
         {
-            void AfterCheckInfo (boolean ValidInfo);
+            void AfterCheckInfo (boolean ValidInfo , boolean MServer , String MsgServer);
         }
     }
 

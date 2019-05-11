@@ -13,14 +13,14 @@ public class JSONGetStringUtf8 extends JSONObject
 {
     public JSONGetStringUtf8 (String json) throws JSONException
     {
-        super(json);
+        super (json);
     }
 
     @bardiademon
     public String getString (String name , boolean utf8) throws JSONException
     {
-        if (utf8) return this.getString(name);
-        else return super.getString(name);
+        if (utf8) return this.getString (name);
+        else return super.getString (name);
     }
 
     @bardiademon
@@ -29,7 +29,7 @@ public class JSONGetStringUtf8 extends JSONObject
     {
         try
         {
-            return URLDecoder.decode(super.getString(name) , "UTF-8");
+            return URLDecoder.decode (super.getString (name) , "UTF-8");
         }
         catch (UnsupportedEncodingException e)
         {

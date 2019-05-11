@@ -122,4 +122,20 @@
         <item name="android:textColorPrimary">@color/grey_60</item>
     </style>
 
+    <!-- ldsocc => Layout Dialog Show Option Click Comment -->
+    <style name="style__btn__ldsocc" parent="Widget.AppCompat.ActionButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:fontFamily">@font/dubai_bedium</item>
+    </style>
+
+    <style name="style__ldsocc__view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/grey_10</item>
+    </style>
+
 </resources>

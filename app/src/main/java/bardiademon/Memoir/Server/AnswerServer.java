@@ -18,6 +18,8 @@ public interface AnswerServer
         public static final int NOT_OK = -7;
         public static final int FOUND = 1;
         public static final int NULL = -123;
+        public static final int SET = 17, UNSET = 18;
+
     }
 
     @bardiademon
@@ -49,7 +51,10 @@ public interface AnswerServer
     @bardiademon
     abstract class CheckInfoLogin extends PublicAnswer
     {
-        public final static int VALID = 6, INVALID = 5;
+        public static abstract class SC200
+        {
+            public final static int VALID = 6, INVALID = 5, DEACTIVE_ACCOUNT = 3;
+        }
     }
 
     @bardiademon
@@ -66,10 +71,16 @@ public interface AnswerServer
             // KJS => Key Json Server
     interface KJS
     {
-        @bardiademon
-        abstract class KJSPublic
+
+        abstract class KJR_ID
         {
-            public static final String NAME = "name", ID = "id";
+            public static final String ID = "id", ID_USER = "idusr";
+        }
+
+        @bardiademon
+        abstract class KJSPublic extends KJR_ID
+        {
+            public static final String NAME = "name";
         }
 
         @bardiademon
@@ -101,6 +112,17 @@ public interface AnswerServer
                     COMMENT = "cmt",
                     LIKED = "lkd",
                     IS_MEMOIR_FOR_YOU = "imfy";
+
+        }
+
+        abstract class KJSGetComment extends KJSPublic
+        {
+            public static final String JSON_INFO_USER = "infusr";
+            public static final String
+                    TXT_COMMENT = "tcmnt",
+                    TIME = "tm",
+                    USERNAME = "uname",
+                    PIC = "pic";
 
         }
     }

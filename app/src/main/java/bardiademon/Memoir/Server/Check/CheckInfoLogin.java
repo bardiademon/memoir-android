@@ -3,6 +3,7 @@ package bardiademon.Memoir.Server.Check;
 import bardiademon.Memoir.Other.MakeHeader;
 import bardiademon.Memoir.Server.AnswerServer;
 import bardiademon.Memoir.bardiademon.Class.Other.CloseTheApp;
+import bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues;
 import bardiademon.Memoir.bardiademon.Class.Other.Service.GetSerialPhone;
 import bardiademon.Memoir.bardiademon.Class.Server.MakeRequest.Request;
 import bardiademon.Memoir.bardiademon.Class.Server.SendInfoToServer;
@@ -24,8 +25,11 @@ public class CheckInfoLogin implements ExchangeInformationWithTheServer
 
     private boolean valid;
 
+    private String msgServer;
+    private boolean mServer; // m => message
+
     @bardiademon
-    public CheckInfoLogin (ExchangeInformationWithTheServer.AfterExchange AfterExchange, String Username, String Password)
+    public CheckInfoLogin (ExchangeInformationWithTheServer.AfterExchange AfterExchange , String Username , String Password)
     {
         this.afterExchange = AfterExchange;
         this.username = Username;
@@ -48,9 +52,9 @@ public class CheckInfoLogin implements ExchangeInformationWithTheServer
         request = new Request ();
         Request.Put put = new Request.Put ();
 
-        put.Put (getString ("nr__username"), username);
-        put.Put (getString ("nr__password"), password);
-        put.Put (getString ("nr__serial"), new GetSerialPhone ().getResult ());
+        put.Put (getString ("nr__username") , username);
+        put.Put (getString ("nr__password") , password);
+        put.Put (getString ("nr__serial") , new GetSerialPhone ().getResult ());
 
         put.Apply ();
         request.Apply ();
@@ -63,7 +67,7 @@ public class CheckInfoLogin implements ExchangeInformationWithTheServer
         assert request != null;
         if (request.isBuilt ())
         {
-            sendInfoToServer = new SendInfoToServer (this::AfterExchange, Url.GetUrl ("ap__CheckInfoLogin"), request.getParam ());
+            sendInfoToServer = new SendInfoToServer (this::AfterExchange , Url.GetUrl ("ap__CheckInfoLogin") , request.getParam ());
             sendInfoToServer.setHeader (MakeHeader.MakeHeaderRequest (getString ("name_request__check_info_login")));
             sendInfoToServer.apply ();
         }
@@ -78,10 +82,45 @@ public class CheckInfoLogin implements ExchangeInformationWithTheServer
         valid = (sendInfoToServer.sendAndGetAnswer () && sendInfoToServer.isCode200 ());
         if (valid)
         {
-            Integer answerServer = Integer.parseInt (sendInfoToServer.getAnswerServer ());
-            valid = answerServer.equals (AnswerServer.CheckInfoLogin.VALID);
+            try
+            {
+                int answerServer = Integer.parseInt (sendInfoToServer.getAnswerServer ());
+                switch (answerServer)
+                {
+                    case AnswerServer.CheckInfoLogin.SC200.VALID:
+                        break;
+                    case AnswerServer.CheckInfoLogin.SC200.DEACTIVE_ACCOUNT:
+                        setMServer ();
+                        break;
+
+                }
+            }
+            catch (Exception e)
+            {
+                valid = false;
+            }
         }
         afterExchange.Callback ();
+    }
+
+    @bardiademon
+    private void setMServer ()
+    {
+        msgServer = GetValues.getString ("str_err__deactive_account");
+        mServer = true;
+        valid = false;
+    }
+
+    @bardiademon
+    public String getMsgServer ()
+    {
+        return msgServer;
+    }
+
+    @bardiademon
+    public boolean isMServer ()
+    {
+        return mServer;
     }
 
     @bardiademon

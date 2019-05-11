@@ -1,4 +1,4 @@
-package bardiademon.Memoir;
+package bardiademon.Memoir.Server.Found;
 
 public class FoundMemoir
 {

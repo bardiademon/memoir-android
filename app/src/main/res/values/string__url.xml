@@ -16,5 +16,13 @@
     <string name="ap__update_like">LikeUser</string>
     <string name="ap__update_comment">CommentUser</string>
     <string name="ap__update_visit">VisitMemoir</string>
+    <string name="ap__get_comment">GetComment</string>
+    <string name="ap__is_in_i_need_cmnt">IsInINeedCmnt</string>
+    <string name="ap__set_i_need_cmnt">SetINeedCmnt</string>
+
+    <string name="ap__delcmnt">DeleteComment</string>
+
+    <string name="ap__report">Report</string>
+    <string name="ap__new_comment">NC</string>
 
 </resources>

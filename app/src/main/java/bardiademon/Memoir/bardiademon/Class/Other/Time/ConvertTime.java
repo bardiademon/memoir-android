@@ -8,9 +8,10 @@ import android.support.annotation.NonNull;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-@SuppressLint("SimpleDateFormat")
+@SuppressLint ("SimpleDateFormat")
 public class ConvertTime
 {
+
 
     private String[] dateIr;
     private Date date;
@@ -27,8 +28,8 @@ public class ConvertTime
 
     public ConvertTime (String time)
     {
-        this();
-        setTime(time);
+        this ();
+        setTime (time);
     }
 
 
@@ -40,27 +41,27 @@ public class ConvertTime
     public ConvertTime (String time , boolean setTimeEn)
     {
         this.setTimeEn = setTimeEn;
-        setTime(time);
+        setTime (time);
     }
 
     public void setTime (String time)
     {
         try
         {
-            date = new Date(Long.parseLong(time) * 1000L);
+            date = new Date (Long.parseLong (time) * 1000L);
 
-            int y = Integer.parseInt(new SimpleDateFormat("y").format(date));
-            int m = Integer.parseInt(new SimpleDateFormat("M").format(date));
-            int d = Integer.parseInt(new SimpleDateFormat("d").format(date));
+            int y = Integer.parseInt (new SimpleDateFormat ("y").format (date));
+            int m = Integer.parseInt (new SimpleDateFormat ("M").format (date));
+            int d = Integer.parseInt (new SimpleDateFormat ("d").format (date));
 
             if (setTimeEn)
-                dateIr = new String[]{String.valueOf(y) , String.valueOf(m) , String.valueOf(d)};
+                dateIr = new String[]{String.valueOf (y) , String.valueOf (m) , String.valueOf (d)};
             else
-                dateIr = gregorian_to_jalali(y , m , d);
+                dateIr = gregorian_to_jalali (y , m , d);
 
             setTime = true;
 
-            weekFa(new SimpleDateFormat("E").format(date));
+            weekFa (new SimpleDateFormat ("E").format (date));
 
         }
         catch (Exception e)
@@ -72,7 +73,7 @@ public class ConvertTime
     public String todayTime ()
     {
         if (setTime)
-            return String.format("%s %s %s %s - %s:%s:%s" , weekFa , dayOnMonth() , monthName() , year() , hour24() , minutes() , second());
+            return String.format ("%s %s %s %s - %s:%s:%s" , weekFa , dayOnMonth () , monthName () , year () , hour24 () , minutes () , second ());
 
         return "";
     }
@@ -80,7 +81,7 @@ public class ConvertTime
     public String pm_am ()
     {
         if (setTime)
-            return new SimpleDateFormat("a").format(date);
+            return new SimpleDateFormat ("a").format (date);
 
         return "";
     }
@@ -89,8 +90,8 @@ public class ConvertTime
     {
         if (setTime)
         {
-            int h = Integer.parseInt(new SimpleDateFormat("h").format(date));
-            return String.valueOf((h < 10) ? "0" + h : h);
+            int h = Integer.parseInt (new SimpleDateFormat ("h").format (date));
+            return String.valueOf ((h < 10) ? "0" + h : h);
         }
 
         return "";
@@ -100,8 +101,8 @@ public class ConvertTime
     {
         if (setTime)
         {
-            int H = Integer.parseInt(new SimpleDateFormat("H").format(date));
-            return String.valueOf((H < 10) ? "0" + H : H);
+            int H = Integer.parseInt (new SimpleDateFormat ("H").format (date));
+            return String.valueOf ((H < 10) ? "0" + H : H);
         }
 
         return "";
@@ -112,8 +113,8 @@ public class ConvertTime
     {
         if (setTime)
         {
-            int m = Integer.parseInt(new SimpleDateFormat("m").format(date));
-            return String.valueOf((m < 10) ? "0" + m : m);
+            int m = Integer.parseInt (new SimpleDateFormat ("m").format (date));
+            return String.valueOf ((m < 10) ? "0" + m : m);
         }
 
         return "";
@@ -123,8 +124,8 @@ public class ConvertTime
     {
         if (setTime)
         {
-            int s = Integer.parseInt(new SimpleDateFormat("s").format(date));
-            return String.valueOf((s < 10) ? "0" + s : s);
+            int s = Integer.parseInt (new SimpleDateFormat ("s").format (date));
+            return String.valueOf ((s < 10) ? "0" + s : s);
         }
 
         return "";
@@ -161,7 +162,7 @@ public class ConvertTime
     public String monthName ()
     {
         if (setTime)
-            return monFa(Integer.parseInt(monInt()));
+            return monFa (Integer.parseInt (monInt ()));
 
         return "";
     }
@@ -177,7 +178,7 @@ public class ConvertTime
     public String weekOnMonth ()
     {
         if (setTime)
-            return new SimpleDateFormat("W").format(date);
+            return new SimpleDateFormat ("W").format (date);
 
         return "";
     }
@@ -185,7 +186,7 @@ public class ConvertTime
     public String weekOnYear ()
     {
         if (setTime)
-            return new SimpleDateFormat("w").format(date);
+            return new SimpleDateFormat ("w").format (date);
 
         return "";
     }
@@ -362,6 +363,6 @@ public class ConvertTime
         int jm = (days < 186) ? 1 + (int) (days / 31) : 7 + (int) ((days - 186) / 30);
         int jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
 
-        return new String[]{String.valueOf(jy) , String.valueOf(jm) , String.valueOf(jd)};
+        return new String[]{String.valueOf (jy) , String.valueOf (jm) , String.valueOf (jd)};
     }
 }

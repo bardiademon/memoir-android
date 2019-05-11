@@ -6,11 +6,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import bardiademon.Memoir.Login;
+import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 
 import static bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues.getString;
 
+@bardiademon
 public abstract class MakeHeader
 {
+    @bardiademon
     public static Map<String, String> MakeHeaderLogin (String request)
     {
         if (Login.IsLogin ())
@@ -25,6 +28,7 @@ public abstract class MakeHeader
         else return null;
     }
 
+    @bardiademon
     public static Map<String, String> MakeHeaderRequest (String request)
     {
         Map<String, String> header = new LinkedHashMap<> ();

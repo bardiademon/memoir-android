@@ -48,5 +48,16 @@
     <string name="bardia_demon">Bardia Demon</string>
     <string name="l_i_n_k">L I N K</string>
     <string name="str_txt_hint_snd_cmnt">دیدگاه . . .</string>
+    <string name="show_profile">نمایش پروفایل</string>
+    <string name="i_need_it">لازمش دارم</string>
+    <string name="i_not_need_it">لازمش ندارم</string>
+    <string name="copy">گرفتن متن</string>
+    <string name="report">گزارش</string>
+
+    <string name="set_ineedcmnt">ذخیره شد</string>
+    <string name="unset_ineedcmnt">پاک شد</string>
+
+    <string name="str__sending">در حال ارسال . . . </string>
+    <string name="str__recorded_comment">دیدگاه شما ثبت شد</string>
 
 </resources>
