@@ -9,7 +9,7 @@ import android.view.Gravity;
 
 import java.util.Locale;
 
-import bardiademon.Memoir.Activity.Add.ActivityAddNewMemoir;
+import bardiademon.Memoir.Activity.Add.ActivityAddChangeMemoir;
 import bardiademon.Memoir.Activity.Get.ActivityGetMemoirUser;
 import bardiademon.Memoir.R;
 import bardiademon.Memoir.bardiademon.Class.About.About;
@@ -82,7 +82,7 @@ public class ActivityMain extends AppCompatActivity implements Activity
     // MI => Menu Item
     private void onClickMIAddNewMemoir ()
     {
-        new ActiveSwitching (ActivityAddNewMemoir.class);
+        new ActiveSwitching (ActivityAddChangeMemoir.class);
     }
 
     private void onClickMIListYourMemoir ()

@@ -5,20 +5,21 @@ import bardiademon.Memoir.Other.MakeHeader;
 import bardiademon.Memoir.Server.AnswerServer;
 import bardiademon.Memoir.bardiademon.Class.Other.CloseTheApp;
 import bardiademon.Memoir.bardiademon.Class.Other.Encode;
+import bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues;
 import bardiademon.Memoir.bardiademon.Class.Server.MakeRequest.Request;
 import bardiademon.Memoir.bardiademon.Class.Server.SendInfoToServer;
 import bardiademon.Memoir.bardiademon.Class.Server.Url;
-import bardiademon.Memoir.bardiademon.Class.View.ShowMessage;
 import bardiademon.Memoir.bardiademon.Interface.ExchangeInformationWithTheServer;
 import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 
 import static bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues.getString;
 
-public class RecordNewMemoir implements ExchangeInformationWithTheServer
+public class RecordChangeNewMemoir implements ExchangeInformationWithTheServer
 {
 
     private String name, subject, link, date, text;
-    private boolean open;
+    private int id;
+    private boolean open, change;
     private Request request;
 
     private SendInfoToServer sendInfoToServer;
@@ -31,7 +32,7 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
     private boolean done;
 
     @bardiademon
-    public RecordNewMemoir (ExchangeInformationWithTheServer.AfterExchange AfterExchange , String Name , String Subject , String Link , String Date , String Text , boolean Open)
+    public RecordChangeNewMemoir (ExchangeInformationWithTheServer.AfterExchange AfterExchange , String Name , String Subject , String Link , String Date , String Text , boolean Open , boolean Change , int Id)
     {
         this.afterExchange = AfterExchange;
         this.name = Name;
@@ -40,6 +41,8 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
         this.date = Date;
         this.text = Text;
         this.open = Open;
+        this.change = Change;
+        this.id = Id;
         RunClass ();
     }
 
@@ -64,7 +67,11 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
         put.Put (getString ("nr__date") , date);
         put.Put (getString ("nr__text") , Encode.encode (text));
         put.Put (getString ("nr__open") , open);
-
+        if (change)
+        {
+            put.Put (GetValues.getString ("nr__change") , true);
+            put.Put (GetValues.getString ("nr__id") , id);
+        }
         put.Apply ();
         request.Apply ();
     }
@@ -76,10 +83,8 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
         assert request != null;
         if (request.isBuilt ())
         {
-            System.out.println (request.getParam ());
-            System.out.println (MakeHeader.MakeHeaderLogin (getString ("name_request__record_new_memoir")));
-            sendInfoToServer = new SendInfoToServer (this::AfterExchange , Url.GetUrl ("ap__record_new_memoir") , request.getParam ());
-            sendInfoToServer.setHeader (MakeHeader.MakeHeaderLogin (getString ("name_request__record_new_memoir")));
+            sendInfoToServer = new SendInfoToServer (this::AfterExchange , Url.GetUrl ("ap__record_change_memoir") , request.getParam ());
+            sendInfoToServer.setHeader (MakeHeader.MakeHeaderLogin (getString ("nt__record_change_memoir")));
             sendInfoToServer.apply ();
         }
         else CloseTheApp.close (true);
@@ -96,16 +101,19 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
             answerServer = Integer.parseInt (sendInfoToServer.getAnswerServer ());
             switch (answerServer)
             {
-                case AnswerServer.RecordNewMemoir.SC200.RECORDED:
-                    setErrorFromServer ("str_suc__add_new_memoir__suc" , false);
+                case AnswerServer.RecordChangeMemoir.SC200.RECORDED:
+                case AnswerServer.RecordChangeMemoir.SC200.CHANGED:
+                {
+                    setErrorFromServer (((change) ? "str_suc__change_memoir__suc" : "str_suc__add_new_memoir__suc") , false);
                     break;
-                case AnswerServer.RecordNewMemoir.SC200.ERROR_DATE:
+                }
+                case AnswerServer.RecordChangeMemoir.SC200.ERROR_DATE:
                     setErrorFromServer ("str_err__add_new_memoir__err_date" , true);
                     break;
-                case AnswerServer.RecordNewMemoir.SC200.ERROR_LINK:
+                case AnswerServer.RecordChangeMemoir.SC200.ERROR_LINK:
                     setErrorFromServer ("str_err__add_new_memoir__err_link" , true);
                     break;
-                case AnswerServer.RecordNewMemoir.SC200.NOT_RECORDED:
+                case AnswerServer.RecordChangeMemoir.SC200.NOT_RECORDED:
                 default:
                     setErrorFromServer ("str_err__add_new_memoir__err_public" , true);
                     break;
@@ -118,10 +126,10 @@ public class RecordNewMemoir implements ExchangeInformationWithTheServer
                 answerServer = Integer.parseInt (sendInfoToServer.getAnswerServer ());
                 switch (answerServer)
                 {
-                    case AnswerServer.RecordNewMemoir.SC400.DUPLICATE_LINK:
+                    case AnswerServer.RecordChangeMemoir.SC400.DUPLICATE_LINK:
                         setErrorFromServer ("str_err__add_new_memoir__err_duplicate_link" , true);
                         break;
-                    case AnswerServer.RecordNewMemoir.NOT_LOGGED_IN:
+                    case AnswerServer.RecordChangeMemoir.NOT_LOGGED_IN:
                         Login.LogOut ();
                         break;
                     default:

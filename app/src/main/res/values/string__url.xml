@@ -8,7 +8,7 @@
     <string name="address_get_name_city">/GetCity.php</string>
 
     <string name="ap__CheckInfoLogin">CheckInfoLogin</string>
-    <string name="ap__record_new_memoir">RecordNewMemoir</string>
+    <string name="ap__record_change_memoir">RNMemoir</string>
     <string name="ap__get_memoir_user">GetMemoirUser</string>
     <string name="ap__delete_memoir_user">DelMemoirUser</string>
     <string name="ap__get_memoir">GetMemoir</string>
@@ -24,5 +24,7 @@
 
     <string name="ap__report">Report</string>
     <string name="ap__new_comment">NC</string>
+
+    <string name="ap__get_text_memoir">GTM</string>
 
 </resources>

@@ -60,4 +60,6 @@
     <string name="str__sending">در حال ارسال . . . </string>
     <string name="str__recorded_comment">دیدگاه شما ثبت شد</string>
 
+    <string name="str_getting_txt">در حال گرفتن متن ....</string>
+
 </resources>

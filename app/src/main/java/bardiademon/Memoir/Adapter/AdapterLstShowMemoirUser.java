@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import bardiademon.Memoir.Activity.Add.ActivityAddChangeMemoir;
+import bardiademon.Memoir.Activity.Get.ActivityGetMemoirUser;
 import bardiademon.Memoir.Activity.Show.ActivityShowMemoir;
 import bardiademon.Memoir.R;
 import bardiademon.Memoir.Server.Delete.DeleteMemoirUser;
@@ -21,6 +23,7 @@ import bardiademon.Memoir.bardiademon.Class.BeforeRunActivity.G;
 import bardiademon.Memoir.bardiademon.Class.Other.ActiveSwitching;
 import bardiademon.Memoir.bardiademon.Class.Other.Question;
 import bardiademon.Memoir.bardiademon.Class.View.Icon;
+import bardiademon.Memoir.bardiademon.Class.View.Title;
 import bardiademon.Memoir.bardiademon.Class.View.Toast;
 import bardiademon.Memoir.bardiademon.Class.View.Wait;
 import bardiademon.Memoir.bardiademon.Interface.bardiademon;
@@ -52,7 +55,7 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
         view = G.getActivity ().getLayoutInflater ().inflate (R.layout.layout__lst_show_memoir_user , null);
         setTools (view);
         FoundMemoirUser foundMemoirUser = foundMemoirUsers.get (position);
-        setOnClick (foundMemoirUser.Id , position , foundMemoirUser.Link);
+        setOnClick (foundMemoirUser , position);
         setValue (foundMemoirUser);
         return view;
     }
@@ -61,7 +64,6 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
     private void setTools (View view)
     {
         txtName = view.findViewById (R.id.layout__lst_show_memoir_user__txt_show_name);
-//        txtSubject = view.findViewById (R.id.layout__lst_show_memoir_user__txt_show_subject);
         txtLink = view.findViewById (R.id.layout__lst_show_memoir_user__txt_show_link);
         imgOpen = view.findViewById (R.id.layout__lst_show_memoir_user__img_open);
         imgConfirmation = view.findViewById (R.id.layout__lst_show_memoir_user__img_confirmation);
@@ -71,19 +73,27 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
     }
 
     @bardiademon
-    private void setOnClick (final int id , final int index , final String link)
+    private void setOnClick (final FoundMemoirUser foundMemoirUser , final int index)
     {
         btnShow.setOnClickListener (v ->
         {
             Intent intent = new Intent ();
-            intent.putExtra (ActivityShowMemoir.NAME_INTENT__LINK , link);
+            intent.putExtra (ActivityShowMemoir.NAME_INTENT__LINK , foundMemoirUser.Link);
             new ActiveSwitching (ActivityShowMemoir.class , intent);
         });
         btnChange.setOnClickListener (v ->
         {
-
+            Intent intent = new Intent ();
+            intent.putExtra (ActivityAddChangeMemoir.KI_CHANGE , true);
+            intent.putExtra (ActivityAddChangeMemoir.KI_ID , foundMemoirUser.Id);
+            intent.putExtra (ActivityAddChangeMemoir.KI_NAME , foundMemoirUser.Name);
+            intent.putExtra (ActivityAddChangeMemoir.KI_SUBJECT , foundMemoirUser.Subject);
+            intent.putExtra (ActivityAddChangeMemoir.KI_LINK , foundMemoirUser.Link);
+            intent.putExtra (ActivityAddChangeMemoir.KI_DATE , foundMemoirUser.Date);
+            intent.putExtra (ActivityAddChangeMemoir.KI_OPEN , foundMemoirUser.Open);
+            new ActiveSwitching (ActivityAddChangeMemoir.class , intent);
         });
-        btnDelete.setOnClickListener (v -> onClickBtnDelete (id , index));
+        btnDelete.setOnClickListener (v -> onClickBtnDelete (foundMemoirUser.Id , index));
     }
 
     private void onClickBtnDelete (final int id , final int index)
@@ -103,6 +113,8 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
             foundMemoirUsers.remove (index);
             notifyDataSetChanged ();
             Toast.ToastReady.DELETED ();
+            Title.ShowTheAmountOf.txtShowTheAmountOfLowOffOrIncrease
+                    (0 , Title.ShowTheAmountOf.LOW_OFF_ONE , ActivityGetMemoirUser.INDEX_NUM_TITLE);
         }
         else Toast.ToastReady.ERROR ();
         System.gc ();
@@ -112,7 +124,6 @@ public class AdapterLstShowMemoirUser extends ArrayAdapter <FoundMemoirUser>
     private void setValue (FoundMemoirUser foundMemoirUser)
     {
         txtName.setText (foundMemoirUser.Name);
-//        txtSubject.setText (foundMemoirUser.Subject);
         txtLink.setText (foundMemoirUser.Link);
 
         imgOpen.setImageResource (getPic (foundMemoirUser.Open));

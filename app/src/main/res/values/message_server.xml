@@ -7,6 +7,7 @@
     <string name="str_err__add_new_memoir__err_date">لطفا تاریخ را بررسی کنید</string>
     <string name="str_err__add_new_memoir__err_public">خطایی از سمت سرور رخ داد ، لطفا دوباره امتحان کنید</string>
     <string name="str_suc__add_new_memoir__suc">با موفقیت ثبت شد</string>
+    <string name="str_suc__change_memoir__suc">با موفقیت ویرایش شد</string>
     <string name="str_err__add_new_memoir__err_duplicate_link">متاسفانه این لینک وارد شده تکراری است</string>
 
     <string name="str_err__not_open_memoir">متاسفانه این خاطره توسط نویسنده غیر قابل نمایش شده</string>

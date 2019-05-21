@@ -12,7 +12,8 @@ import java.util.List;
 
 import bardiademon.Memoir.R;
 import bardiademon.Memoir.Server.Get.GetSubject;
-import bardiademon.Memoir.Server.Save.RecordNewMemoir;
+import bardiademon.Memoir.Server.Get.GetTextMemoir;
+import bardiademon.Memoir.Server.Save.RecordChangeNewMemoir;
 import bardiademon.Memoir.bardiademon.Class.BeforeRunActivity.G;
 import bardiademon.Memoir.bardiademon.Class.Other.ActiveSwitching;
 import bardiademon.Memoir.bardiademon.Class.Other.GetFromValue.GetValues;
@@ -26,7 +27,7 @@ import bardiademon.Memoir.bardiademon.Interface.Activity;
 import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 
 @bardiademon
-public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
+public class ActivityAddChangeMemoir extends AppCompatActivity implements Activity
 {
 
     private EditText txtName, txtLink, txtDate, txtText;
@@ -35,20 +36,46 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
 
     private MaterialSpinner spinnerSubject;
 
-    private String name, link, date, text;
+    private String name, link, date, text, sub;
+    private int id = 0;
     private boolean open;
 
     private List <String> subject;
 
-    private RecordNewMemoir recordNewMemoir;
+    private RecordChangeNewMemoir recordChangeNewMemoir;
 
     private GetSubject getSubject;
+
+    private boolean change;
+
+    public static final String KI_CHANGE = "change",
+            KI_ID = "id",
+            KI_SUBJECT = "sub",
+            KI_LINK = "lnk",
+            KI_NAME = "nm",
+            KI_OPEN = "opn",
+            KI_DATE = "dt";
 
     @Override
     protected void onCreate (Bundle savedInstanceState)
     {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_add_new_memoir);
+        get_intent ();
+    }
+
+    private void get_intent ()
+    {
+        Bundle bundle = getIntent ().getExtras ();
+        if ((change = (bundle != null && bundle.getBoolean (KI_CHANGE))))
+        {
+            id = bundle.getInt (KI_ID);
+            name = bundle.getString (KI_NAME);
+            sub = bundle.getString (KI_SUBJECT);
+            link = bundle.getString (KI_LINK);
+            open = bundle.getBoolean (KI_OPEN);
+            date = bundle.getString (KI_DATE);
+        }
         RunClass ();
     }
 
@@ -75,7 +102,7 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
     public void GSet ()
     {
         G.setActivity (this);
-        G.setActivityClass (ActivityAddNewMemoir.class);
+        G.setActivityClass (ActivityAddChangeMemoir.class);
         G.setViewForActivity ();
     }
 
@@ -89,22 +116,30 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
     @Override
     public void Title ()
     {
-        Title.TitleReady.ACTION_BAR ();
+        String text = Title.TitleReady.DEFAULT;
+        if (change) text = GetValues.getString ("ChangeMemoir");
+        Title.TitleReady.ACTION_BAR (text);
     }
 
     @bardiademon
     @Override
     public void SetOnClick ()
     {
-        btnRecord.setOnClickListener (v -> onClickRecord ());
+        if (change) btnRecord.setOnClickListener (v -> onClickRecordChange ());
+        else btnRecord.setOnClickListener (v -> onClickRecordChange ());
         btnCancel.setOnClickListener (v -> onBackPressed ());
     }
 
     @bardiademon
-    private void onClickRecord ()
+    private void onClickRecordChange ()
     {
-        if (checkValue ()) Question.QuestionReady.RECS.ADD (this::recordInfo);
+        if (checkValue ())
+        {
+            if (change) Question.QuestionReady.RECS.CHANGE (this::recordChangeInfo);
+            else Question.QuestionReady.RECS.ADD (this::recordChangeInfo);
+        }
     }
+
 
     @bardiademon
     private boolean checkValue ()
@@ -148,30 +183,30 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
     }
 
     @bardiademon
-    private void recordInfo ()
+    private void recordChangeInfo ()
     {
-        recordNewMemoir = new RecordNewMemoir (this::afterRecord , name , subject.get (spinnerSubject.getSelectedIndex ()) , link , date , text , open);
+        recordChangeNewMemoir = new RecordChangeNewMemoir (this::afterRecord , name , subject.get (spinnerSubject.getSelectedIndex ()) , link , date , text , open , change , id);
     }
 
     @bardiademon
     private void afterRecord ()
     {
-        if (recordNewMemoir.AnswerServerOrResult ())
+        if (recordChangeNewMemoir.AnswerServerOrResult ())
         {
             int iconMessage;
             ShowMessage.AfterClick afterClick = null;
-            if (recordNewMemoir.isMessageErrFromServer ()) iconMessage = Icon.ICON_ERROR;
+            if (recordChangeNewMemoir.isMessageErrFromServer ()) iconMessage = Icon.ICON_ERROR;
             else
             {
                 iconMessage = Icon.ICON_SUCCESSFUL;
                 afterClick = this::onBackPressed;
             }
-            ShowMessage.show (GetValues.getString ("str_msg__msg_from_server") , recordNewMemoir.messageServer () , iconMessage , afterClick);
+            ShowMessage.show (GetValues.getString ("str_msg__msg_from_server") , recordChangeNewMemoir.messageServer () , iconMessage , afterClick);
         }
         else
         {
-            if (recordNewMemoir.isMessageErrFromServer ())
-                ShowMessage.show (GetValues.getString ("str_msg__msg_from_server") , recordNewMemoir.messageServer () , Icon.ICON_ERROR);
+            if (recordChangeNewMemoir.isMessageErrFromServer ())
+                ShowMessage.show (GetValues.getString ("str_msg__msg_from_server") , recordChangeNewMemoir.messageServer () , Icon.ICON_ERROR);
             else
                 ShowMessage.show (GetValues.getString ("error") , GetValues.getString ("str_err_msg") , Icon.ICON_ERROR);
         }
@@ -193,6 +228,25 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
         btnCancel = findViewById (R.id.id__activity_add_new_memoir__btn_cancel);
 
         checkOpen = findViewById (R.id.id__activity_add_new__memoir__chk_open);
+
+        if (change) btnRecord.setText (GetValues.getString ("change"));
+    }
+
+    private void setValue ()
+    {
+        txtName.setText (name);
+        txtDate.setText (date);
+        checkOpen.setChecked (open);
+        txtLink.setText (link);
+        txtText.setText (GetValues.getString ("str_getting_txt"));
+        new GetTextMemoir ((WasTaken , TextMemoir) ->
+        {
+            if (WasTaken) txtText.setText (TextMemoir);
+            else onBackPressed ();
+        } , id);
+        int indexSubject = subject.indexOf (sub);
+        if (indexSubject >= 0) spinnerSubject.setSelectedIndex (indexSubject);
+        else onBackPressed ();
     }
 
     private void getSubject ()
@@ -205,6 +259,7 @@ public class ActivityAddNewMemoir extends AppCompatActivity implements Activity
             {
                 subject = getSubject.getSubject ();
                 spinnerSubject.setItems (subject);
+                if (change) setValue ();
                 SetOnClick ();
             }
             else

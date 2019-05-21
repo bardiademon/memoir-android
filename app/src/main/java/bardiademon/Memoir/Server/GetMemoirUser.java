@@ -20,7 +20,7 @@ import bardiademon.Memoir.bardiademon.Interface.ExchangeInformationWithTheServer
 public class GetMemoirUser implements ExchangeInformationWithTheServer
 {
 
-    private ArrayList<FoundMemoirUser> foundMemoirUsers;
+    private ArrayList <FoundMemoirUser> foundMemoirUsers;
 
     private boolean wasTaken;
 
@@ -81,16 +81,7 @@ public class GetMemoirUser implements ExchangeInformationWithTheServer
         if (wasTaken)
         {
             if (sendInfoToServer.getAnswerServer ().matches ("[0-9]*"))
-            {
-                int answerServer = Integer.parseInt (sendInfoToServer.getAnswerServer ());
-                switch (answerServer)
-                {
-                    case AnswerServer.PublicAnswer.NOT_FOUND:
-                    default:
-                        wasTaken = false;
-                        break;
-                }
-            }
+                wasTaken = false;
             else
             {
                 try
@@ -115,20 +106,21 @@ public class GetMemoirUser implements ExchangeInformationWithTheServer
         if (jsonArray.length () > 0)
         {
             int id;
-            String name, subject, link;
+            String name, subject, date, link;
             boolean open, confirmation;
             JSONGetStringUtf8 jsonObject;
-            foundMemoirUsers = new ArrayList<> ();
+            foundMemoirUsers = new ArrayList <> ();
             for (int i = 0, len = jsonArray.length (); i < len; i++)
             {
                 jsonObject = new JSONGetStringUtf8 (jsonArray.getString (i));
                 id = jsonObject.getInt (AnswerServer.KJS.KJSGetMemoirUser.ID);
                 name = jsonObject.getString (AnswerServer.KJS.KJSGetMemoirUser.NAME);
                 subject = jsonObject.getString (AnswerServer.KJS.KJSGetMemoirUser.SUBJECT);
-                link = jsonObject.getString (AnswerServer.KJS.KJSGetMemoirUser.LINK);
+                date = jsonObject.getString (AnswerServer.KJS.KJSGetMemoirUser.DATE , false);
+                link = jsonObject.getString (AnswerServer.KJS.KJSGetMemoirUser.LINK , false);
                 open = jsonObject.getBoolean (AnswerServer.KJS.KJSGetMemoirUser.OPEN);
                 confirmation = jsonObject.getBoolean (AnswerServer.KJS.KJSGetMemoirUser.CONFIRMATION);
-                foundMemoirUsers.add (new FoundMemoirUser (id , name , subject , link , confirmation , open));
+                foundMemoirUsers.add (new FoundMemoirUser (id , name , subject , date , link , confirmation , open));
             }
         }
 
@@ -142,7 +134,7 @@ public class GetMemoirUser implements ExchangeInformationWithTheServer
     }
 
     @bardiademon
-    public ArrayList<FoundMemoirUser> getFoundMemoirUsers ()
+    public ArrayList <FoundMemoirUser> getFoundMemoirUsers ()
     {
         return foundMemoirUsers;
     }

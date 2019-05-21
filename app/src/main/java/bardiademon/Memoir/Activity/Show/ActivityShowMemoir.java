@@ -260,11 +260,13 @@ public class ActivityShowMemoir extends AppCompatActivity implements Activity
         return linkMemoir;
     }
 
+    @bardiademon
     public static List <FoundComment> GetFoundComments ()
     {
         return FoundComments;
     }
 
+    @bardiademon
     @Override
     protected void onDestroy ()
     {
@@ -272,6 +274,7 @@ public class ActivityShowMemoir extends AppCompatActivity implements Activity
         Null ();
     }
 
+    @bardiademon
     private void Null ()
     {
         FoundComments = null;

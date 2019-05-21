@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_10"
     android:orientation="vertical"
-    tools:context=".Activity.Add.ActivityAddNewMemoir">
+    tools:context=".Activity.Add.ActivityAddChangeMemoir">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,8 +29,7 @@
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/id__activity_add_new_memoir__txt_name"
                         style="@style/style__activity_add_new_memoir__text_input"
-                        android:hint="@string/name"
-                        android:text="نام خاطره" />
+                        android:hint="@string/name" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -46,8 +45,7 @@
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/id__activity_add_new_memoir__txt_link"
                         style="@style/style__activity_add_new_memoir__text_input"
-                        android:hint="@string/link"
-                        android:text="link_memoir" />
+                        android:hint="@string/link" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -63,8 +61,7 @@
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/id__activity_add_new_memoir__txt_date"
                         style="@style/style__activity_add_new_memoir__text_input"
-                        android:hint="@string/date"
-                        android:text="1358" />
+                        android:hint="@string/date" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -82,8 +79,7 @@
                         style="@style/style__activity_add_new_memoir__text_input"
                         android:layout_marginBottom="2dp"
                         android:hint="@string/text"
-                        android:inputType="textMultiLine"
-                        android:text="متن خاطره" />
+                        android:inputType="textMultiLine" />
 
                 </android.support.design.widget.TextInputLayout>
 

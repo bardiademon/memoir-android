@@ -13,7 +13,7 @@
     <string name="nr__serial_phone">serial_phone</string>
 
     <string name="name_request__check_info_login">check_info_login</string>
-    <string name="name_request__record_new_memoir">record_new_memoir</string>
+    <string name="nt__record_change_memoir">rc_memoir</string>
 
     <string name="nr__username">username</string>
     <string name="nr__password">password</string>
@@ -81,6 +81,8 @@
 
 
     <string name="nrh__new_comment">nc</string>
+    <string name="nrh__get_text_memoir">gtm</string>
+    <string name="nr__change">chng</string>
 
 
 </resources>

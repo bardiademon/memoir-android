@@ -10,20 +10,20 @@ public interface AnswerServer
     @bardiademon
     abstract class PublicAnswer
     {
-        public static final int PUBLIC_ERROR_REQUEST = -11;
-        public static final int PUBLIC_ERROR = -12;
-        public static final int NOT_LOGGED_IN = -13;
-        public static final int NOT_FOUND = 0;
-        public static final int IS_OK = 7;
-        public static final int NOT_OK = -7;
-        public static final int FOUND = 1;
-        public static final int NULL = -123;
-        public static final int SET = 17, UNSET = 18;
+        public static final int PUBLIC_ERROR_REQUEST = -11,
+                PUBLIC_ERROR = -12,
+                NOT_LOGGED_IN = -13,
+                NOT_FOUND = 0,
+                IS_OK = 7,
+                NOT_OK = -7,
+                FOUND = 1,
+                NULL = -123,
+                SET = 17, UNSET = 18;
 
     }
 
     @bardiademon
-    abstract class RecordNewMemoir extends PublicAnswer
+    abstract class RecordChangeMemoir extends PublicAnswer
     {
         // SC = Status Code
         public static abstract class SC400
@@ -33,8 +33,7 @@ public interface AnswerServer
 
         public static abstract class SC200
         {
-            public static final int NOT_RECORDED = 10, RECORDED = 11;
-            public static final int ERROR_LINK = 8, ERROR_DATE = 9;
+            public static final int NOT_RECORDED = 10, RECORDED = 11, ERROR_LINK = 8, ERROR_DATE = 9, CHANGED = 19;
         }
     }
 
@@ -86,10 +85,7 @@ public interface AnswerServer
         @bardiademon
         abstract class KJSGetMemoirUser extends KJSPublic
         {
-            public static final String SUBJECT = "sub";
-            public static final String CONFIRMATION = "con";
-            public static final String LINK = "lnk";
-            public static final String OPEN = "opn";
+            public static final String SUBJECT = "sub", CONFIRMATION = "con", LINK = "lnk", OPEN = "opn", DATE = "dt";
 
         }
 
@@ -117,8 +113,7 @@ public interface AnswerServer
 
         abstract class KJSGetComment extends KJSPublic
         {
-            public static final String JSON_INFO_USER = "infusr";
-            public static final String
+            public static final String JSON_INFO_USER = "infusr",
                     TXT_COMMENT = "tcmnt",
                     TIME = "tm",
                     USERNAME = "uname",

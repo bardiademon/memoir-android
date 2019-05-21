@@ -18,7 +18,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".Activity.Show.ActivityShowProfile"></activity>
+        <activity android:name=".Activity.Show.ActivitySearchMemoirYourList"></activity>
+        <activity android:name=".Activity.Show.ActivityShowProfile" />
         <activity android:name=".Activity.Show.ActivityShowMemoir" />
         <activity android:name=".Activity.Get.ActivityGetMemoirUser" />
         <activity android:name=".Activity.ActivitySplash">
@@ -30,7 +31,7 @@
         </activity>
         <activity android:name=".Activity.ActivityMain" />
         <activity android:name=".Activity.ActivityLogin" />
-        <activity android:name=".Activity.Add.ActivityAddNewMemoir" />
+        <activity android:name=".Activity.Add.ActivityAddChangeMemoir" />
     </application>
 
 </manifest>

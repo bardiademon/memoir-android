@@ -2,14 +2,14 @@ package bardiademon.Memoir.Activity.Get;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.ListView;
 
-import bardiademon.Memoir.Activity.Add.ActivityAddNewMemoir;
+import bardiademon.Memoir.Activity.Add.ActivityAddChangeMemoir;
 import bardiademon.Memoir.Adapter.AdapterLstShowMemoirUser;
 import bardiademon.Memoir.R;
 import bardiademon.Memoir.Server.GetMemoirUser;
-import bardiademon.Memoir.bardiademon.Class.About.About;
 import bardiademon.Memoir.bardiademon.Class.BeforeRunActivity.G;
 import bardiademon.Memoir.bardiademon.Class.Other.ActiveSwitching;
 import bardiademon.Memoir.bardiademon.Class.View.Title;
@@ -21,6 +21,8 @@ import bardiademon.Memoir.bardiademon.Interface.bardiademon;
 @bardiademon
 public class ActivityGetMemoirUser extends AppCompatActivity implements Activity
 {
+
+    public static final int INDEX_NUM_TITLE = 0;
 
     private GetMemoirUser getMemoirUser;
     private ListView listMemoir;
@@ -64,7 +66,7 @@ public class ActivityGetMemoirUser extends AppCompatActivity implements Activity
     @bardiademon
     private void setOnClickBtnNew ()
     {
-        new ActiveSwitching (ActivityAddNewMemoir.class);
+        new ActiveSwitching (ActivityAddChangeMemoir.class);
     }
 
     @bardiademon
@@ -78,7 +80,12 @@ public class ActivityGetMemoirUser extends AppCompatActivity implements Activity
     private void afterGet ()
     {
         Wait.CloseWait ();
-        if (getMemoirUser.AnswerServerOrResult ()) setListMemoir ();
+        if (getMemoirUser.AnswerServerOrResult ())
+        {
+            Title.ShowTheAmountOf.txtShowTheAmountOfLowOffOrIncrease
+                    (getMemoirUser.getFoundMemoirUsers ().size () , Title.ShowTheAmountOf.NULL , INDEX_NUM_TITLE);
+            setListMemoir ();
+        }
         else Toast.ToastReady.NOT_FOUND ();
     }
 
@@ -111,14 +118,17 @@ public class ActivityGetMemoirUser extends AppCompatActivity implements Activity
     @Override
     public void SetAbout ()
     {
-        new About ();
     }
 
     @bardiademon
     @Override
     public void Title ()
     {
-        Title.TitleReady.ACTION_BAR ();
+        Title title = new Title ();
+        title.setText (Title.FOUND_AUTO_TITLE_ACTIVITY);
+        title.setGravity (Gravity.END);
+        title.setShowTheAmountOf (true , 0 , INDEX_NUM_TITLE);
+        title.apply ();
     }
 
     @Override
